@@ -10,7 +10,7 @@ namespace TestProject
         [Test]
         public void ShouldUserSignIn()
         {
-            test = extent.CreateTest("blabla1");
+            //test = extent.CreateTest("blabla1");
             MainPage mainPage = new MainPage();
             SignInPage signInPage = mainPage.ClickOnSignIn();
             MyAccountPage myAccountPage = signInPage.enterEmailAndPasswordAndClickOk();
@@ -20,7 +20,7 @@ namespace TestProject
         [Test]
         public void ShouldUserSignOut()
         {
-            test = extent.CreateTest("blabla1");
+            //test = extent.CreateTest("blabla2");
             MainPage mainPage = new MainPage();
             SignInPage signInPage = mainPage.ClickOnSignIn();
             MyAccountPage myAccountPage = signInPage.enterEmailAndPasswordAndClickOk();
