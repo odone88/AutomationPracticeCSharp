@@ -9,15 +9,26 @@ namespace TestFramework.Pages
 {
     public class MainPage : BasePage
     {
-        private By dressesBtn = By.XPath("//a[contains(@title, 'Log')]");
+        private By DressesBtn = By.XPath("//a[contains(@title, 'Log')]");
+        private By Blouse = By.CssSelector("img[title='Blouse']");
+        private By AddToCartButton = By.CssSelector("a[data-id-product='2']");
 
         public SignInPage ClickOnSignIn()
         {
-            Click(dressesBtn);
+            Click(DressesBtn);
             return new SignInPage();
         }
 
+        public MainPage MouseOverBlouse()
+        {
+            MouseOver(Blouse);
+            return this;
+        }
 
-
+        public ConfirmationBuyingPage ClickAddToCartButton()
+        {
+            Click(AddToCartButton);
+            return new ConfirmationBuyingPage();
+        }
     }
 }

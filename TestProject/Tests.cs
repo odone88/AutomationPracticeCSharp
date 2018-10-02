@@ -27,5 +27,14 @@ namespace TestProject
             SignInPage signInPage2 = myAccountPage.SignOut();
             Assert.IsTrue(signInPage2.IfSignInExists());
         }
+
+        [Test]
+        public void ShouldUserAddBlouseToTheCart()
+        {
+            MainPage mainPage = new MainPage();
+            ConfirmationBuyingPage confirmationBuyingPage = mainPage.MouseOverBlouse().ClickAddToCartButton();
+            ShoppingCartSummaryPage shoppingCartSummaryPage = confirmationBuyingPage.ClickOnProceedToCheckoutBtn();
+            Assert.AreEqual("1", shoppingCartSummaryPage.getQuantityOfAddedElements(), "Item was not added to the cart. Please investigate.");
+        }
     }
 }

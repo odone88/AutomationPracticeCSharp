@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using System;
 
@@ -10,6 +11,8 @@ namespace TestFramework
     {
        
         protected By signInBtn = By.Id("SubmitLogin");
+
+        protected Actions actions;
 
 
         public void Click(By by)
@@ -74,6 +77,19 @@ namespace TestFramework
             if (DriverContext.Driver.FindElement(by).Displayed)
                 return true;
             return false;
+        }
+
+        protected void MouseOver(By by)
+        {
+            WaitForElement2(by, 20);
+            Actions actions = new Actions(DriverContext.Driver);
+            actions.MoveToElement(DriverContext.Driver.FindElement(by)).Build().Perform();
+        }
+
+        protected string GetValueAttributeFromElement(By locator)
+        {
+            WaitForElement2(locator, 20);
+            return DriverContext.Driver.FindElement(locator).GetAttribute("value");
         }
     }
 }
