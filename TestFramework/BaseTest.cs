@@ -11,7 +11,7 @@ namespace TestFramework
 {
     public abstract class BaseTest
     {
-        private string _portalUrl
+        private string PortalUrl
         {
             get
             {
@@ -54,7 +54,7 @@ namespace TestFramework
                 options1.SetLoggingPreference(LogType.Browser, LogLevel.All);
                 DriverContext.Driver = new ChromeDriver(options1);
                 DriverContext.Driver.Manage().Window.Maximize();
-                NavigateToPortalWebiste(_portalUrl);
+                NavigateToPortalWebiste(PortalUrl);
             }
 
             else if (TestContext.Parameters["browser"].ToString() == "chrome")
@@ -66,7 +66,7 @@ namespace TestFramework
                 DriverContext.Driver = new ChromeDriver(options1);
                 DriverContext.Driver.Manage().Window.Maximize();
                 DriverContext.Driver.Manage().Cookies.DeleteAllCookies();
-                NavigateToPortalWebiste(_portalUrl);
+                NavigateToPortalWebiste(PortalUrl);
             }
             else if (TestContext.Parameters["browser"].ToString() == "ie")
             {
@@ -76,7 +76,7 @@ namespace TestFramework
                 DriverContext.Driver = new InternetExplorerDriver(AppDomain.CurrentDomain.BaseDirectory, options, TimeSpan.FromMinutes(2));
                 DriverContext.Driver.Manage().Cookies.DeleteAllCookies();
                 DriverContext.Driver.Manage().Window.Size = new Size(1920, 1080);
-                NavigateToPortalWebiste(_portalUrl);
+                NavigateToPortalWebiste(PortalUrl);
             }
 
 

@@ -29,7 +29,13 @@ namespace TestFramework
 
         }
 
-        public void SendTextToElement(By by, string text)
+        public void SendTextToElement(IWebDriver driver, By by, string text)
+        {
+            WaitForElement2(by, 20);
+            DriverContext.Driver.FindElement(by).SendKeys(text);
+        }
+
+        public void SendTextToElement2(By by, string text)
         {
             WaitForElement2(by, 20);
             DriverContext.Driver.FindElement(by).SendKeys(text);
